@@ -75,7 +75,8 @@ ruleTester.run("new-cap", rule, {
         { code: "var x = Foo.bar(42);", options: [{ properties: false }] },
         { code: "var x = foo.Bar(42);", options: [{ capIsNew: false, properties: false }] },
 
-        { code: "class Foo { @Foo() foo: number = 1;};", options: [{ capIsNewExceptionPattern: "^@.*" }] }
+        { code: "class Foo { @Foo() foo: number = 1;};", options: [{ capIsNewExceptionPattern: "^@.*" }] },
+        { code: "class Foo { @Foo() @Bar @Bazz foo: number = 1;};", options: [{ capIsNewExceptionPattern: "^@.*" }] }
     ],
 
     invalid: [
@@ -168,6 +169,13 @@ ruleTester.run("new-cap", rule, {
         },
         {
             code: "class Foo { @Foo() foo: number = 1;};",
+            errors: [{
+                message: "A function with a name starting with an uppercase letter should only be used as a constructor.",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "class Foo { @bar @Foo() foo: number = 1;};",
             errors: [{
                 message: "A function with a name starting with an uppercase letter should only be used as a constructor.",
                 type: "CallExpression"
