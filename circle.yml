@@ -7,6 +7,10 @@ machine:
     MOCHA_OPTS: --reporter mocha-junit-reporter --reporter-options mochaFile=$CIRCLE_TEST_REPORTS/mocha/junit.xml
     ESLINT_OPTS: --quiet --format junit -o $CIRCLE_TEST_REPORTS/eslint.xml
 
+dependencies:
+  pre:
+    - 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'
+
 test:
   pre:
     - mkdir -p $CIRCLE_TEST_REPORTS/mocha
