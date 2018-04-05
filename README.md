@@ -43,9 +43,4 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-* new-cap
-
-
-
-
-
+* new-cap - same as eslint core rule but adds @ prefix to decorator function while parsed to make it easy to apply regex rules for all decorators.
