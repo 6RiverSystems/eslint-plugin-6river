@@ -1,5 +1,5 @@
 {
-  "name": "@6river/eslint-plugin-6river",
+  "name": "eslint-plugin-6river",
   "version": "0.0.2-development",
   "description": "set of 6river eslint plugins",
   "keywords": [
