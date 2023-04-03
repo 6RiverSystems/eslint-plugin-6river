@@ -19,35 +19,6 @@ jobs:
           root: ./
           paths:
             - .
-  # build:
-  #   docker:
-  #     - image: *node_image
-  #   steps:
-  #     - attach_workspace:
-  #         at: ./
-  #     - run:
-  #         name: Build
-  #         command: npm run only:build
-  #     - persist_to_workspace:
-  #         root: ./
-  #         paths:
-  #           - dist
-  # lint:
-  #   docker:
-  #     - image: *node_image
-  #   steps:
-  #     - attach_workspace:
-  #         at: ./
-  #     - run:
-  #         name: check format
-  #         command: npm run format:check
-  #     - run:
-  #         name: Lint
-  #         command: npm run eslint:check -- --format junit --output-file ./reports/eslint/results.xml
-  #     - store_test_results:
-  #         path: ./reports
-  #     - store_artifacts:
-  #         path: ./reports
   test:
     docker:
       - image: *node_image
@@ -59,10 +30,6 @@ jobs:
       - run:
           name: Unit Tests
           command: npm run test
-      # - run:
-      #     name: Coverage
-      #     command: npm run only:lCov
-      # - sixrs-gke/codecov
       - store_test_results:
           path: ./reports
       - store_artifacts:
@@ -73,6 +40,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ./
+      - sixrs-gke/setup-private-npm
       - sixrs-gke/run-release
       - sixrs-gke/npm-public-publish
 workflows:
@@ -80,14 +48,6 @@ workflows:
   build-test-deploy:
     jobs:
       - setup
-      # - build:
-      #     context: 6rs-public-npm
-      #     requires:
-      #       - setup
-      # - lint:
-      #     context: 6rs-public-npm
-      #     requires:
-      #       - setup
       - test:
           context: 6rs-public-npm
           requires:
@@ -96,8 +56,6 @@ workflows:
           context: 6rs-public-npm
           requires:
             - setup
-            # - build
-            # - lint
             - test
           filters:
             branches:
