@@ -16,6 +16,7 @@
     "commitmsg": "validate-commit-msg"
   },
   "dependencies": {
+    "eslint-plugin-unicorn": "^56.0.0",
     "requireindex": "~1.1.0"
   },
   "devDependencies": {
