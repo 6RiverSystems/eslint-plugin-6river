@@ -30,25 +30,25 @@ You can use this plugin with pre-set configurations, or you can configure it you
 #### Node & Mocha
 
 ```js
-import eslintPlugin6river from 'eslint-plugin-6river';
+const eslintPlugin6river = require('eslint-plugin-6river');
 
-export default [...eslintPlugin6river['node-mocha']];
+module.exports = [...eslintPlugin6river['node-mocha']];
 ```
 
 #### Browser & Jest
 
 ```js
-import eslintPlugin6river from 'eslint-plugin-6river';
+const eslintPlugin6river = require('eslint-plugin-6river');
 
-export default [...eslintPlugin6river['browser-jest']];
+module.exports = [...eslintPlugin6river['browser-jest']];
 ```
 
 ### Custom Configuration
 
 ```js
-import eslintPlugin6river from 'eslint-plugin-6river';
+const eslintPlugin6river = require('eslint-plugin-6river');
 
-export default [
+module.exports = [
 	{
 		plugins: {
 			'6river': eslintPlugin6river,
