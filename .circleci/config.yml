@@ -4,7 +4,7 @@ orbs:
   sixrs-gke: sixriversystems/sixrs-gke@7
 
 aliases:
-  - &node_image cimg/node:16.19.1
+  - &node_image cimg/node:20.15.1
 
 jobs:
   setup:
@@ -24,7 +24,8 @@ jobs:
     docker:
       - image: *node_image
     environment:
-      MOCHA_OPTS: --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/junit/mocha/mocha.xml
+      MOCHA_OPTS:
+        --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/junit/mocha/mocha.xml
     steps:
       - attach_workspace:
           at: ./
