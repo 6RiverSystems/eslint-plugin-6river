@@ -24,7 +24,8 @@ jobs:
     docker:
       - image: *node_image
     environment:
-      MOCHA_OPTS: --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/junit/mocha/mocha.xml
+      MOCHA_OPTS:
+        --reporter mocha-junit-reporter --reporter-options mochaFile=./reports/junit/mocha/mocha.xml
     steps:
       - attach_workspace:
           at: ./
