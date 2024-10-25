@@ -4,11 +4,11 @@
  */
 "use strict";
 
-const parser = require("@typescript-eslint/parser");
-
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
+const parser = require("@typescript-eslint/parser");
+const assert = require("node:assert").strict;
 
 var rule = require("../../../lib/rules/new-cap"),
   RuleTester = require("eslint").RuleTester;
@@ -16,6 +16,7 @@ var rule = require("../../../lib/rules/new-cap"),
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
+assert.ok(parser, "@typescript-eslint/parser is required");
 
 var ruleTester = new RuleTester({
   languageOptions: {
