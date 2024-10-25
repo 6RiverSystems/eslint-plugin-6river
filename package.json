@@ -19,38 +19,18 @@
     "requireindex": "~1.1.0"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^2.1.0",
-    "eslint": "~3.9.1",
-    "husky": "^0.14.3",
-    "mocha": "^3.1.2",
-    "typescript": "^2.8.1",
-    "typescript-eslint-parser": "^14.0.0",
-    "validate-commit-msg": "^2.14.0"
+    "@6river/commitlint-config-6river": "2.3.4",
+    "@commitlint/cli": "^17.8.0",
+    "@typescript-eslint/parser": "8.11.0",
+    "commitlint": "^19.5.0",
+    "eslint": "9.13.0",
+    "husky": "^8.0.3",
+    "mocha": "10.2.0",
+    "pretty-quick": "^4.0.0",
+    "typescript": "5.6.3"
   },
   "engines": {
-    "node": ">=16.19.0"
-  },
-  "config": {
-    "validate-commit-msg": {
-      "types": [
-        "feat",
-        "fix",
-        "docs",
-        "style",
-        "refactor",
-        "test",
-        "chore"
-      ],
-      "warnOnFail": false,
-      "maxSubjectLength": 100,
-      "subjectPattern": ".+",
-      "subjectPatternErrorMsg": "subject does not match subject pattern!",
-      "helpMessage": "Follow <type>(<scope>): <subject> pattern, max 100 chars.",
-      "autoFix": false
-    },
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "node": ">=20.15.1"
   },
   "publishConfig": {
     "access": "public",
