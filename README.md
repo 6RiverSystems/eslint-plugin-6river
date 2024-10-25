@@ -32,7 +32,7 @@ You can use this plugin with pre-set configurations, or you can configure it you
 ```js
 const eslintPlugin6river = require('eslint-plugin-6river');
 
-module.exports = [...eslintPlugin6river['node-mocha']];
+module.exports = [...eslintPlugin6river.configs['node-mocha']];
 ```
 
 #### Browser & Jest
@@ -40,7 +40,7 @@ module.exports = [...eslintPlugin6river['node-mocha']];
 ```js
 const eslintPlugin6river = require('eslint-plugin-6river');
 
-module.exports = [...eslintPlugin6river['browser-jest']];
+module.exports = [...eslintPlugin6river.configs['browser-jest']];
 ```
 
 ### Custom Configuration
