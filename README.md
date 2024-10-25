@@ -1,46 +1,66 @@
 # eslint-plugin-6river
 
-set of 6river eslint plugins
+A set of ESLint plugins and configurations used by 6river.
 
 ## Installation
 
-You'll first need to install [ESLint](http://eslint.org):
+First, install [ESLint](http://eslint.org):
 
-```
-$ npm i eslint --save-dev
-```
-
-Next, install `eslint-plugin-6river`:
-
-```
-$ npm install eslint-plugin-6river --save-dev
+```sh
+npm install eslint --save-dev
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install
+Then, install `eslint-plugin-6river`:
+
+```sh
+npm install eslint-plugin-6river --save-dev
+```
+
+**Note:** If you installed ESLint globally (using the `-g` flag), you must also install
 `eslint-plugin-6river` globally.
 
 ## Usage
 
-Add `6river` to the plugins section of your `.eslintrc` configuration file. You can omit the
-`eslint-plugin-` prefix:
+This plugin requires ESLint 9 or later.
 
-```json
-{
-	"plugins": ["6river"]
-}
+You can use this plugin with pre-set configurations, or you can configure it yourself.
+
+### Pre-set Configurations
+
+#### Node & Mocha
+
+```js
+import eslintPlugin6river from 'eslint-plugin-6river';
+
+export default [...eslintPlugin6river['node-mocha']];
 ```
 
-Then configure the rules you want to use under the rules section.
+#### Browser & Jest
 
-```json
-{
-	"rules": {
-		"6river/rule-name": 2
-	}
-}
+```js
+import eslintPlugin6river from 'eslint-plugin-6river';
+
+export default [...eslintPlugin6river['browser-jest']];
+```
+
+### Custom Configuration
+
+```js
+import eslintPlugin6river from 'eslint-plugin-6river';
+
+export default [
+	{
+		plugins: {
+			'6river': eslintPlugin6river,
+		},
+		rules: {
+			'6river/rule-name': 'error',
+		},
+	},
+];
 ```
 
 ## Supported Rules
 
-- new-cap - same as eslint core rule but adds @ prefix to decorator function while parsed to make it
-  easy to apply regex rules for all decorators.
+- **new-cap**: Similar to the ESLint core rule but adds an `@` prefix to decorator functions, making
+  it easier to apply regex rules to all decorators.
