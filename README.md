@@ -25,36 +25,50 @@ This plugin requires ESLint 9 or later.
 
 You can use this plugin with pre-set configurations, or you can configure it yourself.
 
-### Pre-set Configurations
+### Generate a config
 
-#### Node & Mocha
+This is the recommended way to generate a configuration.
 
 ```js
-const eslintPlugin6river = require('eslint-plugin-6river');
+import eslintPluginSixriver from 'eslint-plugin-6river';
 
-module.exports = [...eslintPlugin6river.configs['node-mocha']];
+export default [...eslintPluginSixriver.generateConfig(import.meta.dirname, ['node', 'mocha'])];
 ```
 
-#### Browser & Jest
+Supported config names can be found in the generate-config.js file.
+
+### Pre-set Configurations
+
+#### TypeScript
+
+This is the base opinionated TS configuration that you probably don't need to use by yourself. Use
+one of the ecosystem versions below which extend this config.
 
 ```js
-const eslintPlugin6river = require('eslint-plugin-6river');
+import eslintPlugin6river from 'eslint-plugin-6river';
 
-module.exports = [...eslintPlugin6river.configs['browser-jest']];
+export default [...eslintPlugin6river.configs['typescript']];
 ```
 
 ### Custom Configuration
 
 ```js
-const eslintPlugin6river = require('eslint-plugin-6river');
+import eslintPlugin6river from 'eslint-plugin-6river';
 
-module.exports = [
+export default [
 	{
+		files: ['**/*.{ts,tsx}'],
 		plugins: {
 			'6river': eslintPlugin6river,
 		},
 		rules: {
 			'6river/rule-name': 'error',
+		},
+		languageOptions: {
+			parserOptions: {
+				projectService: true,
+				tsconfigRootDir: import.meta.dirname,
+			},
 		},
 	},
 ];
