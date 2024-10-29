@@ -7,16 +7,15 @@
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
-const parser = require('@typescript-eslint/parser');
-const assert = require('node:assert').strict;
-
-var rule = require('../../../lib/rules/new-cap'),
-	RuleTester = require('eslint').RuleTester;
+import parser from '@typescript-eslint/parser';
+import { strict } from 'node:assert';
+import rule from '../../../lib/rules/new-cap.js';
+import { RuleTester } from 'eslint';
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
-assert.ok(parser, '@typescript-eslint/parser is required');
+strict.ok(parser, '@typescript-eslint/parser is required');
 
 var ruleTester = new RuleTester({
 	languageOptions: {
