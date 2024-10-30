@@ -1,7 +1,6 @@
 {
   "name": "eslint-plugin-6river",
   "version": "0.0.0-development",
-  "private": true,
   "description": "set of 6river eslint plugins",
   "keywords": [
     "eslint",
