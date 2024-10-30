@@ -1,6 +1,7 @@
 {
   "name": "eslint-plugin-6river",
-  "version": "0.0.2-development",
+  "version": "0.0.0-development",
+  "private": true,
   "description": "set of 6river eslint plugins",
   "keywords": [
     "eslint",
@@ -10,29 +11,37 @@
   "repository": "6RiverSystems/eslint-plugin-6river",
   "license": "ISC",
   "author": "Nick Chistyakov",
+  "type": "module",
   "main": "lib/index.js",
   "scripts": {
     "prettier": "prettier -w .",
     "test": "mocha tests --recursive"
   },
   "dependencies": {
-    "requireindex": "~1.1.0"
+    "@eslint/js": "~9.13.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jest": "~28.8.3",
+    "eslint-plugin-mocha": "^10.5.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "globals": "^15.11.0",
+    "typescript-eslint": "~8.11.0"
   },
   "devDependencies": {
     "@6river/commitlint-config-6river": "2.3.4",
-    "@6river/prettier-config": "^1.2.28",
+    "@6river/prettier-config": "1.2.28",
     "@commitlint/cli": "^17.8.0",
-    "@typescript-eslint/parser": "8.11.0",
     "commitlint": "^19.5.0",
-    "eslint": "9.13.0",
-    "eslint-plugin-mocha": "^10.5.0",
-    "globals": "^15.11.0",
+    "eslint": "^9.13.0",
     "husky": "^8.0.3",
     "mocha": "^10.7.3",
-    "prettier": "^3.3.3",
+    "prettier": "^3.0.0",
     "prettier-plugin-packagejson": "^2.5.3",
     "pretty-quick": "^4.0.0",
     "typescript": "5.6.3"
+  },
+  "peerDependencies": {
+    "eslint": "^9.13.0"
   },
   "engines": {
     "node": ">=20.15.1"
