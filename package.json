@@ -17,14 +17,14 @@
     "test": "mocha tests --recursive"
   },
   "dependencies": {
-    "@eslint/js": "~9.13.0",
+    "@eslint/js": "~9.15.0",
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-jest": "~28.8.3",
+    "eslint-plugin-jest": "~28.9.0",
     "eslint-plugin-mocha": "^10.5.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
-    "globals": "^15.11.0",
-    "typescript-eslint": "~8.11.0"
+    "globals": "^15.12.0",
+    "typescript-eslint": "~8.15.0"
   },
   "devDependencies": {
     "@6river/commitlint-config-6river": "2.3.4",
